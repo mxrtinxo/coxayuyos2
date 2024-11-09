@@ -5,6 +5,9 @@ import { inject } from '@angular/core';
 import { convertDateToString } from '../tools/date-functions';
 
 export class User extends Person {
+  static buscarUsuarioPorCorreo(correoIngresado: any) {
+    throw new Error('Method not implemented.');
+  }
 
   userName = '';
   email = '';
@@ -17,6 +20,8 @@ export class User extends Person {
   constructor() {
     super();
   }
+
+  
 
   static getNewUsuario(
     userName: string,

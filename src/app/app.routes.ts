@@ -18,8 +18,7 @@ export const routes: Routes = [
   },
   {
     path: 'ingreso',
-    loadComponent: () => import('./pages/ingreso/ingreso.page').then( m => m.IngresoPage),
-    canActivate: [homeGuard]
+    loadComponent: () => import('./pages/ingreso/ingreso.page').then( m => m.IngresoPage)
   },
   {
     path: 'correo',
@@ -36,5 +35,9 @@ export const routes: Routes = [
   {
     path: 'incorrecto',
     loadComponent: () => import('./pages/incorrecto/incorrecto.page').then( m => m.IncorrectoPage)
+  },
+  {
+    path: 'inicio',
+    loadComponent: () => import('./pages/inicio/inicio.page').then( m => m.InicioPage)
   },
 ];

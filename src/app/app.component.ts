@@ -1,5 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  declarations: [
+  ],
+  imports: [
+    ReactiveFormsModule,
+    
+  ]
+})
+export class AppModule {}
 
 @Component({
   selector: 'app-root',

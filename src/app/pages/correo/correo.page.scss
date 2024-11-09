@@ -1,0 +1,116 @@
+.correo-background {
+  background-image: url('/assets/images/Padre_alonso_ovalle-1-1920x600.jpg');
+  background-size: cover;
+  background-position: center;
+  --background: none;
+}
+
+.pagina-titulo {
+  font-family: 'Myriad Pro', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.enmarcar-correo-card {
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.centrar-contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  height: 80vh; /* Altura completa de la pantalla */
+  margin-top: 60px;
+}
+
+
+.logo-duoc {
+  width: 500px;
+  margin-bottom: 20px;
+}
+
+.enmarcar-correo {
+  width: 100%;
+  max-width: 400px;
+}
+
+.toolbar-custom {
+  background-color: transparent;
+}
+
+.titulo-container {
+  background-color: rgba(165, 162, 162, 0.199); 
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  display: inline-block;
+  text-align: center;
+}
+
+.titulo-correo {
+  font-family: 'Myriad Pro', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+.subtitulo-correo {
+  font-family: 'Myriad Pro', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.correo-input-item {
+  margin-bottom: 10px;
+}
+
+.botones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.boton-recuperar {
+  --background: #f1b634;
+  color: white;
+}
+
+/* Animaciones */
+.pagina-titulo, .logo-duoc {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ancho-boton {
+  transition: transform 0.3s ease;
+}
+
+.ancho-boton:hover {
+  transform: scale(1.05);
+}
+
+.recuperar-cuenta-container {
+  text-align: center; /* Centrar el texto */
+  margin-top: 20px; /* Espacio entre el botón y el texto */
+}
+
+.recuperar-cuenta {
+  color: #ffffff; /* Asegúrate de que coincida con tu esquema de colores */
+  text-decoration: underline; /* O cualquier otro estilo que prefieras */
+}
