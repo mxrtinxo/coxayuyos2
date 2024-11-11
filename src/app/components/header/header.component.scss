@@ -1,0 +1,14 @@
+.logo-duoc-header {
+  width: 200px; /* Ajusta el tamaño según lo necesites */
+  animation: moveLogo 2s infinite alternate;
+}
+
+/* Definir la animación */
+@keyframes moveLogo {
+  from {
+    transform: translateX(0); /* Empieza en su posición original */
+  }
+  to {
+    transform: translateX(20px); /* Se mueve 20px a la derecha */
+  }
+}

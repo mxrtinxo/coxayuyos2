@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar class="azul-duoc">  
+    <div class="ion-text-center">
+      <img alt="DUOC" src="../../../assets/img/duoc_logo.png" class="logo-duoc" />
+    </div>
+    <ion-title #titulo class="ion-text-center" 
+    style="font-size: 18px; color: rgb(255, 255, 255);">
+    Sistema de Asistencia Duoc</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="book">
+  
+  <ion-content #page [fullscreen]="true" class="ion-padding-horizontal page">
+    
+    <ion-title class="ion-padding-top">
+      <ion-label class="ion-text-center">
+        <h1> ¡Bienvenido(a) {{ usuario.nombre }} {{ usuario.apellido }}!</h1>
+        <h4 *ngIf="!datosQR"> Escanea el código QR para registrar tu asistencia a clases </h4>
+        <h4 *ngIf="datosQR"> Ya estas presente en tu clase </h4>
+      </ion-label>
+    </ion-title>
+
+    <div class="centrar">
+      <div class="enmarcar">
+        <video #video [hidden]="!escaneando" style="width: 100%"></video>
+        <canvas #canvas hidden></canvas>
+      </div>
+    </div>
+    
+  </ion-content>
+</div>
+
+<div class="ion-text-center">
+  <ion-label>
+    <br>
+    <u><a (click)="cerrarSesion()">Cerrar sesión</a></u>
+    <br><br>
+  </ion-label>
+</div>
+
+<ion-footer>
+  <ion-toolbar>
+    <div style="display: flex; justify-content: center; width: 100%;">
+      <ion-button (click)="navegar('/misdatos')">
+        <ion-icon slot="start" name="document-text-outline"></ion-icon>
+        Mis datos
+      </ion-button>
+      <ion-button (click)="navegar('/inicio')">
+        <ion-icon slot="start" name="grid-outline"></ion-icon>
+        Inicio
+      </ion-button>
+      <ion-button (click)="navegar('/misdatos')">
+        <ion-icon slot="start" name="document-text-outline"></ion-icon>
+        Mi clase
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

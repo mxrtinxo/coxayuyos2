@@ -1,0 +1,18 @@
+<app-header 
+  (headerClick)="headerClick($event)">
+</app-header>
+
+<ion-content [fullscreen]="true">
+
+  <app-qrwebscanner *ngIf="selectedComponent === 'qr-web-scanner'"> </app-qrwebscanner >
+  <app-forum *ngIf="selectedComponent === 'forum'">
+  </app-forum >
+  <app-miclase *ngIf="selectedComponent === 'miclase.component'">
+  </app-miclase > 
+
+
+</ion-content>
+
+<app-footer
+  (footerClick)="footerClick($event)">
+</app-footer>
