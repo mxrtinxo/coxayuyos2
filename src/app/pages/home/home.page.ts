@@ -15,6 +15,7 @@ import { WelcomeComponent } from 'src/app/components/welcome/welcome.component';
 import { ForumComponent } from 'src/app/components/forum/forum.component';
 import { User } from 'src/app/model/user';
 import { MiclaseComponent } from "../../components/miclase/miclase.component";
+import { MisDatosPage } from "../../components/mis-datos/mis-datos.page";
 
 @Component({
   selector: 'app-home',
@@ -25,19 +26,19 @@ import { MiclaseComponent } from "../../components/miclase/miclase.component";
     CommonModule, FormsModule, TranslateModule, IonContent,
     HeaderComponent, FooterComponent,
     WelcomeComponent, QrWebScannerComponent, DinosaurComponent,
-    ForumComponent, MiclaseComponent]
+    ForumComponent, MiclaseComponent, MisDatosPage]
 })
 export class HomePage {
   
   usuario: User = new User();
 
   @ViewChild(FooterComponent) footer!: FooterComponent;
-  selectedComponent = 'welcome';
+  selectedComponent = 'qr-web-scanner';
 
   constructor(private auth: AuthService, private scanner: ScannerService) { }
 
   ionViewWillEnter() {
-    this.changeComponent('welcome');
+    this.changeComponent('mis-datos');
   }
 
   async headerClick(button: string) {
@@ -46,7 +47,7 @@ export class HomePage {
       this.showDinoComponent(Dinosaur.jsonDinoExample);
 
     if (button === 'scan' && Capacitor.getPlatform() === 'web')
-      this.selectedComponent = 'qrwebscanner';
+      this.selectedComponent = 'qr-web-scanner';
 
     if (button === 'scan' && Capacitor.getPlatform() !== 'web')
         this.showDinoComponent(await this.scanner.scan());
@@ -57,7 +58,7 @@ export class HomePage {
   }
 
   webQrStopped() {
-    this.changeComponent('welcome');
+    this.changeComponent('mis-datos');
   }
 
   showDinoComponent(qr: string) {
@@ -68,7 +69,7 @@ export class HomePage {
       return;
     }
     
-    this.changeComponent('welcome');
+    this.changeComponent('mis-datos');
   }
 
   footerClick(button: string) {

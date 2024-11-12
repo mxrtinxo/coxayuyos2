@@ -4,12 +4,23 @@
 
 <ion-content [fullscreen]="true">
 
-  <app-qrwebscanner *ngIf="selectedComponent === 'qr-web-scanner'"> </app-qrwebscanner >
-  <app-forum *ngIf="selectedComponent === 'forum'">
-  </app-forum >
-  <app-miclase *ngIf="selectedComponent === 'miclase.component'">
-  </app-miclase > 
+  <app-qrwebscanner 
+    *ngIf="selectedComponent === 'qr-web-scanner'" 
+    (scanned)="webQrScanned($event)"
+    (stopped)="webQrStopped()">
+  </app-qrwebscanner >
+  
+  <app-mis-datos
+    *ngIf="selectedComponent === 'mis-datos'">
+  </app-mis-datos> 
 
+  <app-miclase 
+    *ngIf="selectedComponent === 'miclase'">
+  </app-miclase>
+
+  <app-forum 
+    *ngIf="selectedComponent === 'forum'">
+  </app-forum>
 
 </ion-content>
 

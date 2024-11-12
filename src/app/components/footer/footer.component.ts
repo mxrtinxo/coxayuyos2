@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { IonFooter, IonToolbar, IonSegment, IonSegmentButton, IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { homeOutline, pawOutline, pencilOutline, qrCodeOutline, personOutline } from 'ionicons/icons';
+import { homeOutline, pawOutline, pencilOutline, qrCodeOutline, personOutline, calendarClearOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-footer',
@@ -20,11 +20,11 @@ import { homeOutline, pawOutline, pencilOutline, qrCodeOutline, personOutline } 
 })
 export class FooterComponent {
 
-  selectedButton = 'welcome';
+  selectedButton = 'mis-datos';
   @Output() footerClick = new EventEmitter<string>();
 
   constructor() { 
-    addIcons({homeOutline,personOutline,pencilOutline,qrCodeOutline,pawOutline});
+    addIcons({homeOutline,calendarClearOutline,pencilOutline,personOutline,qrCodeOutline,pawOutline});
   }
 
   sendClickEvent($event: any) {
