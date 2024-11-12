@@ -1,10 +1,12 @@
+/* Fondo de la página de correo */
 .correo-background {
   background-image: url('/assets/images/Padre_alonso_ovalle-1-1920x600.jpg');
   background-size: cover;
   background-position: center;
-  --background: none;
+  --background: none; /* Asegura que no haya fondo adicional */
 }
 
+/* Estilo del título de la página */
 .pagina-titulo {
   font-family: 'Myriad Pro', sans-serif;
   font-size: 28px;
@@ -15,63 +17,74 @@
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 10px;
+  animation: fadeIn 1s ease-in-out; /* Animación de desvanecimiento */
 }
 
-.enmarcar-correo-card {
-  border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+/* Logo DUOC */
+.logo-duoc {
+  width: 280px; /* Ajustado al tamaño del logo */
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out; /* Animación de desvanecimiento */
 }
 
+/* Contenedor del contenido */
 .centrar-contenido {
   display: flex;
   flex-direction: column;
   justify-content: center; /* Centra verticalmente */
   align-items: center; /* Centra horizontalmente */
-  height: 80vh; /* Altura completa de la pantalla */
+  height: 80vh;
   margin-top: 60px;
 }
 
-
-.logo-duoc {
-  width: 500px;
-  margin-bottom: 20px;
+/* Estilo de la tarjeta de correo */
+.enmarcar-correo-card {
+  border-radius: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilos del contenedor de la tarjeta */
 .enmarcar-correo {
   width: 100%;
   max-width: 400px;
 }
 
+/* Estilo del toolbar dentro de la tarjeta */
 .toolbar-custom {
   background-color: transparent;
 }
 
+/* Contenedor del título de la tarjeta */
 .titulo-container {
-  background-color: rgba(165, 162, 162, 0.199); 
+  background-color: rgba(165, 162, 162, 0.199);
   padding: 15px 20px;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   display: inline-block;
   text-align: center;
 }
 
+/* Estilo del título dentro de la tarjeta */
 .titulo-correo {
   font-family: 'Myriad Pro', sans-serif;
   font-size: 24px;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  color: rgb(68, 68, 68);
 }
 
+/* Estilo del subtítulo dentro de la tarjeta */
 .subtitulo-correo {
   font-family: 'Myriad Pro', sans-serif;
   font-size: 20px;
-  color: #ffffff;
+  color: rgb(68, 68, 68);
 }
 
+/* Estilo del item de entrada de correo */
 .correo-input-item {
   margin-bottom: 10px;
 }
 
+/* Estilos de los botones */
 .botones-container {
   display: flex;
   flex-direction: column;
@@ -83,11 +96,7 @@
   color: white;
 }
 
-/* Animaciones */
-.pagina-titulo, .logo-duoc {
-  animation: fadeIn 1s ease-in-out;
-}
-
+/* Animación de desvanecimiento */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -97,6 +106,7 @@
   }
 }
 
+/* Efecto hover en los botones */
 .ancho-boton {
   transition: transform 0.3s ease;
 }
@@ -105,12 +115,13 @@
   transform: scale(1.05);
 }
 
+/* Estilo para el enlace de "Iniciar sesión" */
 .recuperar-cuenta-container {
-  text-align: center; /* Centrar el texto */
-  margin-top: 20px; /* Espacio entre el botón y el texto */
+  text-align: center;
+  margin-top: 20px;
 }
 
 .recuperar-cuenta {
-  color: #ffffff; /* Asegúrate de que coincida con tu esquema de colores */
-  text-decoration: underline; /* O cualquier otro estilo que prefieras */
+  color: white;
+  text-decoration: underline;
 }

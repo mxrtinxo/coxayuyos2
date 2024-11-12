@@ -1,0 +1,39 @@
+/* Ajustar el logo dentro del encabezado */
+.logo-duoc {
+  width: 300px; /* Tamaño adecuado para el logo */
+ 
+  margin-right: 10px; /* Espacio entre el logo y el texto */
+  animation: moveLogo 2s infinite alternate; /* Animación de movimiento */
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3)); /* Sombra sutil */
+}
+
+/* Estilo para el título */
+ion-title h3 {
+  font-size: 16px; /* Tamaño de fuente ajustado a 16px (puedes cambiar el valor según lo desees) */
+  font-weight: bold;
+  color: white; /* Color blanco para el texto */
+  margin-top: 10px; /* Espacio superior para el título */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  text-align: center; /* Centrado del texto */
+}
+
+/* Definir la animación para el logo */
+@keyframes moveLogo {
+  from {
+    transform: translateX(0); /* Empieza en su posición original */
+  }
+  to {
+    transform: translateX(15px); /* Se mueve 15px a la derecha */
+  }
+}
+
+/* Ajustes para el botón de logout */
+ion-button {
+  --padding-start: 10px;
+  --padding-end: 10px;
+}
+
+ion-button ion-icon {
+  font-size: 50px; /* Ajuste del tamaño del ícono */
+}

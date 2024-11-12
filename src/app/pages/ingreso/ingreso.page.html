@@ -1,52 +1,44 @@
 <ion-content [fullscreen]="true" class="login-background">
-  <div class="centrar-contenido">
-    
-    <img alt="DUOC" src="/assets/images/duoc_logo.png" class="logo-duoc" />
-    
-    <h1 class="pagina-titulo">Bienvenido al Sistema de Asistencia DUOC</h1>
-    <br><br>
-    <div class="centrar">
-      <div class="enmarcar-login">
-        <ion-card class="ion-text-center enmarcar-login-card">
-        
-          <ion-card-content>
-            <ion-card-header>  
-              <ion-toolbar class="toolbar-custom">
-                <div class="titulo-container">
-                  <h1 class="titulo-login">Sistema de Asistencia DUOC</h1>
-                  <h2 class="subtitulo-login">Inicio de sesión</h2>
-                </div>
-              </ion-toolbar>
-            </ion-card-header>
-
-            <ion-item class="login-input-item">
-              <ion-icon name="person-circle-outline" slot="start"></ion-icon>
-              <ion-input [(ngModel)]="correo" 
-                  label="Cuenta" labelPlacement="floating"
-                  placeholder="Ej: atorres"></ion-input>
-            </ion-item>
-
-            <ion-item class="login-input-item">
-              <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-              <ion-input [(ngModel)]="password" 
-                  label="Contraseña" labelPlacement="floating" type="password"
-                  placeholder="Ej: 1234"></ion-input>
-            </ion-item>
-
-            <div class="ion-margin-top botones-container">
-              <ion-button expand="block" shape="round" size="default" (click)="login()" class="ancho-boton boton-ingresar">
-                Ingresar
-              </ion-button>
-            </div>
-              
-          </ion-card-content>
-
-        </ion-card>
-
-        <div class="recuperar-cuenta-container">
-          <!-- <a [routerLink]="['/correo']" class="recuperar-cuenta">Recuperar cuenta</a>  -->
-        </div>
-      </div>
+  
+  <div class="contenido-centralizado">
+    <!-- Botones superiores de Idioma y Temas -->
+    <div class="contenedor-botones-superiores">
+      <ion-button class="boton-idioma">
+        <ion-select
+          [(ngModel)]="languageSelected"
+          (ngModelChange)="changeLanguage($event)"
+          interface="popover">
+          <ion-select-option value="en">English</ion-select-option>
+          <ion-select-option value="es">Español</ion-select-option>
+          <ion-select-option value="arn">Mapudungun</ion-select-option>
+        </ion-select>
+      </ion-button>
+      <ion-button class="boton-tema" (click)="navigateTheme()">Temas</ion-button>
     </div>
+
+    <!-- Logo DUOC y título principal -->
+    <img alt="DUOC" src="/assets/images/duoc_logo.png" class="logo-duoc" />
+    <br>
+
+    <!-- Tarjeta de inicio de sesión -->
+    <ion-card class="tarjeta-login">
+      <ion-card-header>
+        <h1 class="titulo-login">Sistema de Asistencia DUOC</h1>
+        <h2 class="subtitulo-login">Inicio de sesión</h2>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item class="campo-input">
+          
+          <ion-input [(ngModel)]="correo" label="Cuenta" labelPlacement="floating" placeholder="Ej: atorres"></ion-input>
+        </ion-item>
+        <ion-item class="campo-input">
+          <ion-input [(ngModel)]="password" label="Contraseña" labelPlacement="floating" type="password" placeholder="Ej: 1234"></ion-input>
+        </ion-item>
+        <ion-button expand="block" class="boton-principal" (click)="login()">Ingresar</ion-button>
+        <ion-button (click)="passwordRecovery()">Recuperar Contraseña</ion-button>
+        <ion-button expand="block" class="boton-secundario" (click)="navigateMap()">Seleccionar ruta</ion-button>
+      </ion-card-content>
+    </ion-card>
+    <br>
   </div>
 </ion-content>

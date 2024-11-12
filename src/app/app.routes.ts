@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { loginGuard } from './guards/login.guard';
 import { homeGuard } from './guards/home.guard';
+import { IngresoPage } from './pages/ingreso/ingreso.page';
 
 export const routes: Routes = [
   {
@@ -18,11 +19,8 @@ export const routes: Routes = [
   },
   {
     path: 'ingreso',
-    loadComponent: () => import('./pages/ingreso/ingreso.page').then( m => m.IngresoPage)
-  },
-  {
-    path: 'correo',
-    loadComponent: () => import('./pages/correo/correo.page').then( m => m.CorreoPage)
+    loadComponent: () => import('./pages/ingreso/ingreso.page').then( m => m.IngresoPage),
+    
   },
   {
     path: 'pregunta',

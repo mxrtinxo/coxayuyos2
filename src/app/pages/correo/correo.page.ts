@@ -1,50 +1,64 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonCardContent, IonCard, IonCardHeader, IonItem, IonIcon, IonButton } from '@ionic/angular/standalone';
-import { Router } from '@angular/router';
-import { User } from 'src/app/model/user';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DatabaseService } from '/ProyectosIonic/dino/src/app/services/database.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-correo',
   templateUrl: './correo.page.html',
   styleUrls: ['./correo.page.scss'],
-  standalone: true,
-  imports: [IonButton, IonIcon, IonItem, IonCardHeader, IonCard, IonCardContent, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, ReactiveFormsModule, RouterModule]
 })
-export class CorreoPage  {
+export class CorreoPage implements OnInit {
   correoForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
-    private router: Router
+    private formBuilder: FormBuilder,
+    private databaseService: DatabaseService,
+    private alertController: AlertController
   ) {
-    this.correoForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]]
+    
+    this.correoForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
     });
   }
 
-  onSubmit() {
-    // if (this.correoForm.valid) {
-    //   const correoIngresado = this.correoForm.get('email')?.value;
+  ngOnInit(): void {
+    console.log('CorreoPage inicializado');
+  }
 
-    //   // Buscar al usuario por correo
-    //   const usuario: User | undefined = User.buscarUsuarioPorCorreo(correoIngresado);
-    //   if (usuario) { // Verificar si 'usuario' es válido
-    //     this.router.navigate(['/pregunta'], {
-    //       state: {
-    //         correo: usuario.email,
-    //         nombre: `${usuario.firstName} ${usuario.lastName}`,
-    //         preguntaSecreta: usuario.secretQuestion
-    //       }
-    //     });
-    //   } else {
-    //     alert('Correo no encontrado.');
-    //   }
+  
 
-    // } else {
-    //   alert('Por favor ingresa un correo válido.');
-    // }
+  async onSubmit() {
+    if (this.correoForm.invalid) {
+      await this.presentAlert('Formulario inválido', 'Por favor, ingresa un correo electrónico válido.');
+      return;
+    }
+
+    const email = this.correoForm.value.email;
+
+    try {
+      const user = await this.databaseService.findUserByEmail(email);
+
+      if (user) {
+        await this.presentAlert('Correo encontrado', 'Proceda con la recuperación de la contraseña.');
+        // Aquí puedes redirigir a la siguiente página para continuar con la recuperación
+      } else {
+        await this.presentAlert('Error', 'No se encontró un usuario con ese correo electrónico.');
+      }
+    } catch (error) {
+      await this.presentAlert('Error', 'Ocurrió un problema al buscar el usuario. Inténtelo de nuevo más tarde.');
+      console.error(error);
+    }
+  }
+
+  // Método para mostrar alertas
+  async presentAlert(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 }

@@ -1,14 +1,17 @@
 <ion-content [fullscreen]="true" class="correo-background">
   <div class="centrar-contenido">
-    <img alt="DUOC" src="/src/assets/images/duoc_logo.png" class="logo-duoc" />
+    <!-- Logo DUOC -->
+    <img alt="DUOC" src="/assets/images/duoc_logo.png" class="logo-duoc" />
 
+    <!-- Título de la página -->
     <h1 class="pagina-titulo">Recuperar Contraseña</h1>
 
+    <!-- Contenedor de la tarjeta de recuperación -->
     <div class="centrar">
       <div class="enmarcar-correo">
         <ion-card class="ion-text-center enmarcar-correo-card">
-
           <ion-card-content>
+            <!-- Cabecera de la tarjeta -->
             <ion-card-header>
               <ion-toolbar class="toolbar-custom">
                 <div class="titulo-container">
@@ -18,6 +21,7 @@
               </ion-toolbar>
             </ion-card-header>
 
+            <!-- Formulario de recuperación -->
             <form [formGroup]="correoForm" (ngSubmit)="onSubmit()">
               <ion-item class="correo-input-item">
                 <ion-icon name="mail-outline" slot="start"></ion-icon>
@@ -31,19 +35,20 @@
               </ion-item>
 
               <div class="ion-margin-top botones-container">
+                <!-- Botón para recuperar contraseña -->
                 <ion-button expand="block" shape="round" size="default" type="submit" class="ancho-boton boton-recuperar">
                   Recuperar contraseña
                 </ion-button>
               </div>
             </form>
-
           </ion-card-content>
-
         </ion-card>
       </div>
     </div>
+
+    <!-- Enlace para redirigir a iniciar sesión -->
     <div class="recuperar-cuenta-container">
-      <a [routerLink]="['/ingreso']" class="recuperar-cuenta">Iniciar sesion</a>
+      <a [routerLink]="['/ingreso']" class="recuperar-cuenta">Iniciar sesión</a>
     </div>
   </div>
 </ion-content>

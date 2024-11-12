@@ -1,110 +1,106 @@
+/* Asegúrate de que ion-content esté configurado correctamente */
+ion-content.login-background {
+  --background: transparent;
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  height: 100vh;
+  padding: 0;
+}
 
+/* Fondo de la página de inicio de sesión */
 .login-background {
   background-image: url('/assets/images/Padre_alonso_ovalle-1-1920x600.jpg');
   background-size: cover;
   background-position: center;
-  --background: none;
+  background-attachment: fixed;
 }
 
-.pagina-titulo {
-  font-family: 'Myriad Pro', sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 30px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo negro más oscuro */
-  padding: 10px;
-  border-radius: 10px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.enmarcar-login-card {
-  border-radius: 15px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Sombras más intensas */
-  background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semitransparente */
-}
-
-.centrar-contenido {
+/* Centrar contenido */
+.contenido-centralizado {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  margin-top: 60px;
+  align-items: center; /* Centrado horizontal del contenido dentro del contenedor */
+  justify-content: center; /* Centrado vertical */
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0 auto; /* Asegura que esté centrado dentro del ion-content */
 }
 
-.logo-duoc {
-  width: 500px;
-  margin-bottom: 20px;
-  animation: fadeIn 1s ease-in-out;
-}
 
-.enmarcar-login {
+/* Estilo de la tarjeta de inicio de sesión */
+.tarjeta-login {
   width: 100%;
   max-width: 400px;
-}
-
-.toolbar-custom {
-  background-color: transparent;
-}
-
-.titulo-container {
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro para mayor contraste */
-  padding: 15px 20px;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.85); /* Fondo semi-transparente */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 25px;
   text-align: center;
+  backdrop-filter: blur(5px); /* Agrega un efecto de desenfoque detrás de la tarjeta */
 }
 
-.titulo-login {
-  font-family: 'Myriad Pro', sans-serif;
-  font-size: 24px;
-  font-weight: bold;
-  color: #ffffff;
+/* Contenedor de los botones superiores */
+.contenedor-botones-superiores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+  padding: 5px 0;
 }
 
-.subtitulo-login {
-  font-family: 'Myriad Pro', sans-serif;
-  font-size: 20px;
-  color: #ffffff;
+/* Estilo general para ambos botones */
+.contenedor-botones-superiores ion-button {
+  flex: 1;
+  margin: 0 5px;
+  --background: #f5f5f5; /* Fondo gris claro */
+  --color: #0033A0; /* Azul institucional */
+  --border-radius: 8px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  font-weight: 500; /* Semi-negrita */
+  font-size: 0.9em; /* Tamaño de texto más pequeño para mejor proporción */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil */
 }
 
-.login-input-item {
-  margin-bottom: 10px;
+/* Hover para hacer los botones más interactivos */
+.contenedor-botones-superiores ion-button:hover {
+  --background: #FFD100; /* Fondo amarillo institucional al pasar el ratón */
+  --color: #0033A0; /* Texto en azul */
+  transform: scale(1.05); /* Leve agrandamiento en hover */
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.botones-container {
+/* Estilo adicional para el botón de idioma */
+.boton-idioma {
+  margin-right: 5px;
+}
+
+/* Estilo adicional para el botón de temas */
+.boton-tema {
+  margin-left: 5px;
+}
+
+/* Colores del texto principal */
+.titulo-principal, .titulo-login, .subtitulo-login {
+  color: #0033A0; /* Azul institucional */
+}
+
+/* Centrar todo el contenido en el contenedor */
+.contenido-centralizado {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-
-.boton-ingresar {
-  --background: #f1b634;
-  color: white;
-  font-weight: bold;
-}
-
-.recuperar-cuenta-container {
-  margin-top: 20px;
+  align-items: center;
   text-align: center;
-}
-
-.recuperar-cuenta {
-  text-decoration: underline;
-  color: #ffffff;
-  font-family: 'Myriad Pro', sans-serif;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco semitransparente */
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
