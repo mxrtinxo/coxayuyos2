@@ -35,7 +35,7 @@
           <ion-input [(ngModel)]="password" label="Contraseña" labelPlacement="floating" type="password" placeholder="Ej: 1234"></ion-input>
         </ion-item>
         <ion-button expand="block" class="boton-principal" (click)="login()">Ingresar</ion-button>
-        <ion-button (click)="passwordRecovery()">Recuperar Contraseña</ion-button>
+        <ion-button expand="block" class="boton-secundario" (click)="passwordRecovery()">Recuperar contraseña</ion-button>
         <ion-button expand="block" class="boton-secundario" (click)="navigateMap()">Seleccionar ruta</ion-button>
       </ion-card-content>
     </ion-card>

@@ -5,6 +5,7 @@ import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } 
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
+
 // CGV-INI-Imports-Traductor
 
 import { TranslateLoader, TranslateModule, TranslateModuleConfig } from '@ngx-translate/core';

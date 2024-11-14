@@ -5,14 +5,22 @@
       (ionChange)="sendClickEvent($event)"
       [(ngModel)]="selectedButton"
     >
+
+    <ion-segment-button value="mis-datos">
+      <ion-icon name="person-outline"></ion-icon>
+
+      {{ "Mis datos" | translate }}
+    </ion-segment-button>
+
       <ion-segment-button value="qr-web-scanner">
-        <ion-icon name="home-outline"></ion-icon>
+        <ion-icon name="qr-code-outline"></ion-icon>
+
         {{ "Escanear QR" | translate }}
       </ion-segment-button>
       
-      <ion-segment-button #dinoButton value="dinosaur">
-        <ion-icon name="person-outline"></ion-icon>
-        {{ "Mis Clase" | translate }}
+      <ion-segment-button #dinoButton value="miclase">
+        <ion-icon name="calendar-clear-outline"></ion-icon>
+        {{ "Mi Clase" | translate }}
       </ion-segment-button>
       
       <ion-segment-button value="forum">

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { DinosaurComponent } from 'src/app/components/dinosaur/dinosaur.component';
 import { AuthService } from 'src/app/services/auth.service';
-import { IonContent, IonHeader, IonToolbar, IonTitle, IonLabel, IonFooter, IonButton, IonIcon } from '@ionic/angular/standalone'
+import { IonContent, IonHeader, IonToolbar, IonTitle, IonLabel, IonFooter, IonButton, IonIcon, IonGrid, IonCol, IonRow, IonText } from '@ionic/angular/standalone'
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -14,30 +14,31 @@ import { ScannerService } from 'src/app/services/scanner.service';
 import { WelcomeComponent } from 'src/app/components/welcome/welcome.component';
 import { ForumComponent } from 'src/app/components/forum/forum.component';
 import { User } from 'src/app/model/user';
+import { MiclaseComponent } from "../../components/miclase/miclase.component";
+import { MisDatosPage } from 'src/app/components/misdatos/misdatos.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonFooter, IonLabel, IonTitle, IonToolbar, IonHeader, 
-      CommonModule, FormsModule, TranslateModule, IonContent
-    , HeaderComponent, FooterComponent
-    , WelcomeComponent, QrWebScannerComponent, DinosaurComponent
-    , ForumComponent
-  ]
+  imports: [IonText, IonRow, IonCol, IonGrid, IonIcon, IonButton, IonFooter, IonLabel, IonTitle, IonToolbar, IonHeader,
+    CommonModule, FormsModule, TranslateModule, IonContent,
+    HeaderComponent, FooterComponent,
+    WelcomeComponent, QrWebScannerComponent, DinosaurComponent,
+    ForumComponent, MiclaseComponent, MisDatosPage]
 })
 export class HomePage {
   
   usuario: User = new User();
 
   @ViewChild(FooterComponent) footer!: FooterComponent;
-  selectedComponent = 'welcome';
+  selectedComponent = 'qr-web-scanner';
 
   constructor(private auth: AuthService, private scanner: ScannerService) { }
 
   ionViewWillEnter() {
-    this.changeComponent('welcome');
+    this.changeComponent('mis-datos');
   }
 
   async headerClick(button: string) {
@@ -46,7 +47,7 @@ export class HomePage {
       this.showDinoComponent(Dinosaur.jsonDinoExample);
 
     if (button === 'scan' && Capacitor.getPlatform() === 'web')
-      this.selectedComponent = 'qrwebscanner';
+      this.selectedComponent = 'qr-web-scanner';
 
     if (button === 'scan' && Capacitor.getPlatform() !== 'web')
         this.showDinoComponent(await this.scanner.scan());
@@ -57,18 +58,18 @@ export class HomePage {
   }
 
   webQrStopped() {
-    this.changeComponent('welcome');
+    this.changeComponent('mis-datos');
   }
 
   showDinoComponent(qr: string) {
 
     if (Dinosaur.isValidDinosaurQrCode(qr)) {
       this.auth.qrCodeData.next(qr);
-      this.changeComponent('dinosaur');
+      this.changeComponent('miclase');
       return;
     }
     
-    this.changeComponent('welcome');
+    this.changeComponent('mis-datos');
   }
 
   footerClick(button: string) {

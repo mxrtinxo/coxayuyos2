@@ -20,7 +20,6 @@ export const routes: Routes = [
   {
     path: 'ingreso',
     loadComponent: () => import('./pages/ingreso/ingreso.page').then( m => m.IngresoPage),
-    
   },
   {
     path: 'pregunta',
@@ -35,7 +34,11 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/incorrecto/incorrecto.page').then( m => m.IncorrectoPage)
   },
   {
-    path: 'inicio',
-    loadComponent: () => import('./pages/inicio/inicio.page').then( m => m.InicioPage)
+    path: 'correo',
+    loadComponent: () => import('./pages/correo/correo.page').then( m => m.CorreoPage)
   },
+   {
+     path: 'home',
+     loadComponent: () => import('./pages/home/home.page').then( m => m.HomePage)
+   },
 ];

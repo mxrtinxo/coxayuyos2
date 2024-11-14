@@ -1,3 +1,4 @@
+import { log } from './../../tools/message-functions';
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -7,6 +8,7 @@ import { LanguageComponent } from 'src/app/components/language/language.componen
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/model/user';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { RouterModule } from '@angular/router';
 
 
 import { IonicModule } from '@ionic/angular';
@@ -32,6 +34,7 @@ import { ElementRef } from '@angular/core';
     TranslateModule,
     LanguageComponent,
     HeaderComponent,
+    RouterModule
   ]
 })
 export class IngresoPage implements ViewWillEnter {
@@ -71,11 +74,6 @@ throw new Error('Method not implemented.');
     this.router.navigate(['/map']);
   }
 
-  navigateContrasena() {
-    this.router.navigate(['/correo']);
-  }
-  
-
   login() {
     this.authService.login(this.correo, this.password);
   }
@@ -83,8 +81,8 @@ throw new Error('Method not implemented.');
   registerNewUser() {
     // Método para registrar un nuevo usuario
   }
-
-  passwordRecovery() {
-    this.router.navigate(['/correo']);
-  }
+  passwordRecovery():void {
+  console.log('Botón de recuperar contraseña presionado');
+  this.router.navigate(['/correo']);
+ }
 }

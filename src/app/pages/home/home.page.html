@@ -5,18 +5,18 @@
 <ion-content [fullscreen]="true">
 
   <app-qrwebscanner 
-    *ngIf="selectedComponent === 'qrwebscanner'" 
+    *ngIf="selectedComponent === 'qr-web-scanner'" 
     (scanned)="webQrScanned($event)"
     (stopped)="webQrStopped()">
   </app-qrwebscanner >
   
-  <app-welcome 
-    *ngIf="selectedComponent === 'welcome'">
-  </app-welcome>
+  <app-mis-datos
+    *ngIf="selectedComponent === 'mis-datos'">
+  </app-mis-datos> 
 
-  <app-dinosaur 
-    *ngIf="selectedComponent === 'dinosaur'">
-  </app-dinosaur>
+  <app-miclase 
+    *ngIf="selectedComponent === 'miclase'">
+  </app-miclase>
 
   <app-forum 
     *ngIf="selectedComponent === 'forum'">
